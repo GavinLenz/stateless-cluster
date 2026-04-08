@@ -1,0 +1,32 @@
+# Minimal Rocky9 base.
+options:
+  layer_type: 'base'
+  name: 'rocky-base'
+  publish_tags: 'rocky9'
+  pkg_manager: 'dnf'
+  parent: 'scratch'
+  publish_registry: 'demo.openchami.cluster:5000/demo'
+  registry_opts_push:
+    - '--tls-verify=false'
+
+repos:
+  - alias: 'Rocky_9_BaseOS'
+    url: 'https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/'
+    gpg: 'https://dl.rockylinux.org/pub/rocky/RPM-GPG-KEY-Rocky-9'
+  - alias: 'Rocky_9_AppStream'
+    url: 'https://dl.rockylinux.org/pub/rocky/9/AppStream/x86_64/os/'
+    gpg: 'https://dl.rockylinux.org/pub/rocky/RPM-GPG-KEY-Rocky-9'
+
+package_groups:
+  - 'Minimal Install'
+
+packages:
+  - cloud-init
+  - dracut-live
+  - kernel
+  - NetworkManager # explicit
+
+cmds:
+  - cmd: 'dracut --add "dmsquash-live livenet network-manager" --kver $(basename /lib/modules/*) -N -f --logfile /tmp/dracut.log 2>/dev/null'
+  - cmd: 'echo DRACUT LOG:; cat /tmp/dracut.log'
+

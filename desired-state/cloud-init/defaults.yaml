@@ -1,0 +1,7 @@
+---
+base-url: "http://172.16.0.254:8081/cloud-init"
+cluster-name: "demo"
+nid-length: 2
+public-keys:
+  - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOmBdppQBUj3CD5hM0DPhx4RskyZYuIxXzK7sXITCOkd i711700'
+short-name: "de"

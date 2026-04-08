@@ -1,0 +1,52 @@
+- name: compute
+  description: "compute config"
+  file:
+    encoding: plain
+    content: |
+      ## template: jinja
+      #cloud-config
+
+      merge_how:
+        - name: list
+          settings: [append]
+        - name: dict
+          settings: [no_replace, recurse_list]
+
+      users:
+        - name: root
+          ssh_authorized_keys: {{ ds.meta_data.instance_data.v1.public_keys }}
+
+      disable_root: false
+
+      runcmd:
+        - systemctl enable --now sshd
+
+        - |
+          cat <<'EOF' > /usr/local/bin/run-container.sh
+          #!/bin/bash
+          set -euo pipefail
+
+          LOG=/tmp/ubi.out
+          IMAGE=172.16.0.254:5000/demo/ubi9:latest
+
+          echo "[INFO] starting" > $LOG
+
+          # Timing start
+          START=$(date +%s)
+
+          podman pull --tls-verify=false $IMAGE >> $LOG 2>&1
+
+          podman run --rm $IMAGE \
+            sh -c "echo NODE=$(hostname); cat /etc/redhat-release" \
+            >> $LOG 2>&1
+
+          # Timing end
+          END=$(date +%s)
+          echo "[INFO] runtime=$((END-START))s" >> $LOG
+
+          echo "[INFO] done" >> $LOG
+          EOF
+
+        - chmod +x /usr/local/bin/run-container.sh
+
+        - /usr/local/bin/run-container.sh

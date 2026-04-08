@@ -1,0 +1,47 @@
+bmcs:
+- xname: x1000c0s0b0
+  mac: 00:00:00:00:00:01
+  ip: 172.16.0.101
+- xname: x1000c0s0b1
+  mac: 00:00:00:00:00:02
+  ip: 172.16.0.102
+- xname: x1000c0s0b2
+  mac: 00:00:00:00:00:03
+  ip: 172.16.0.103
+
+nodes:
+- name: compute1
+  nid: 1
+  xname: x1000c0s0b0n0
+  bmc: x1000c0s0b0
+  groups:
+  - compute
+  interfaces:
+  - mac_addr: 84:47:09:4d:51:76
+    ip_addrs:
+    - name: management
+      ip_addr: 172.16.0.1
+
+- name: compute2
+  nid: 2
+  xname: x1000c0s0b1n0
+  bmc: x1000c0s0b1
+  groups:
+  - compute
+  interfaces:
+  - mac_addr: 84:47:09:4d:57:37
+    ip_addrs:
+    - name: management
+      ip_addr: 172.16.0.2
+
+- name: compute3
+  nid: 3
+  xname: x1000c0s0b2n0
+  bmc: x1000c0s0b2
+  groups:
+  - compute
+  interfaces:
+  - mac_addr: 84:47:09:4d:5b:d6
+    ip_addrs:
+    - name: management
+      ip_addr: 172.16.0.3

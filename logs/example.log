@@ -1,0 +1,44 @@
+[INFO] Wed Apr  8 02:54:30 PM EDT 2026 starting node check
+=== de01 ===
+[INFO] starting
+Trying to pull 172.16.0.254:5000/demo/ubi9:latest...
+Getting image source signatures
+Copying blob sha256:2a35ea4a0f227689f2da83ed16c71957d06241ec5063b61a9753a0165a8df3ff
+Copying config sha256:ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+Writing manifest to image destination
+ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+NODE=de01
+Red Hat Enterprise Linux release 9.7 (Plow)
+[INFO] runtime=3s
+[INFO] done
+[INFO] de01 OK
+
+=== de02 ===
+[INFO] starting
+Trying to pull 172.16.0.254:5000/demo/ubi9:latest...
+Getting image source signatures
+Copying blob sha256:2a35ea4a0f227689f2da83ed16c71957d06241ec5063b61a9753a0165a8df3ff
+Copying config sha256:ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+Writing manifest to image destination
+ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+NODE=de02
+Red Hat Enterprise Linux release 9.7 (Plow)
+[INFO] runtime=3s
+[INFO] done
+[INFO] de02 OK
+
+=== de03 ===
+[INFO] starting
+Trying to pull 172.16.0.254:5000/demo/ubi9:latest...
+Getting image source signatures
+Copying blob sha256:2a35ea4a0f227689f2da83ed16c71957d06241ec5063b61a9753a0165a8df3ff
+Copying config sha256:ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+Writing manifest to image destination
+ee7e53017f1986fb9734917a2ca22d540f5f2359f3bcfaa7193497968228c21c
+NODE=de03
+Red Hat Enterprise Linux release 9.7 (Plow)
+[INFO] runtime=3s
+[INFO] done
+[INFO] de03 OK
+
+[INFO] Wed Apr  8 02:54:30 PM EDT 2026 completed node check

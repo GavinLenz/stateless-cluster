@@ -1,0 +1,9 @@
+---
+kernel: 'http://172.16.0.254:7070/boot-images/efi-images/compute/vmlinuz-5.14.0-611.41.1.el9_7.x86_64'
+initrd: 'http://172.16.0.254:7070/boot-images/efi-images/compute/initramfs-5.14.0-611.41.1.el9_7.x86_64.img'
+params: 'nomodeset ro root=live:http://172.16.0.254:7070/boot-images/compute/rocky9.7-compute-latest ip=dhcp overlayroot=tmpfs overlayroot_cfgdisk=disabled apparmor=0 selinux=0 console=ttyS0,115200 ip6=off cloud-init=enabled ds=nocloud-net;s=http://172.16.0.254:8081/cloud-init'
+macs:
+  - 84:47:09:4d:51:76
+  - 84:47:09:4d:57:37
+  - 84:47:09:4d:5b:d6
+

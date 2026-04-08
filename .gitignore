@@ -1,0 +1,9 @@
+# SNAPSHOTS
+snapshots/*
+!snapshots/latest/
+!snapshots/latest/**
+
+# LOGS
+logs/*
+!logs/
+!logs/example.log

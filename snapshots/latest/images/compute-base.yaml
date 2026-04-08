@@ -1,0 +1,26 @@
+options:
+  layer_type: 'base'
+  name: 'compute'
+  pkg_manager: 'dnf'
+  parent: 'demo.openchami.cluster:5000/demo/rocky-base:rocky9'
+  registry_opts_pull:
+  - '--tls-verify=false'
+
+
+  publish_s3: 'http://demo.openchami.cluster:7070'
+  s3_prefix: 'compute/'
+  s3_bucket: 'boot-images'
+  registry_opts_push:
+  - '--tls-verify=false'
+
+packages:
+  - podman
+
+cmds:
+  - cmd: |
+      mkdir -p /etc/containers
+      cat <<EOF > /etc/containers/registries.conf.d/registry.conf
+      [[registry]]
+      location = "172.16.0.254:5000"
+      insecure = true
+      EOF
