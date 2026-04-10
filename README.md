@@ -1,12 +1,14 @@
-# OpenCHAMI Stateless Cluster
+# Stateless Cluster
 
 ## Overview
 
 This project explores stateless compute node provisioning and runtime execution using OpenCHAMI on bare-metal infrastructure. The focus is on building a reproducible, image-based cluster where nodes boot via PXE and execute workloads at runtime.
 
-The current system demonstrates an end-to-end pipeline for air-gapped container execution across multiple compute nodes.
+The current system demonstrates a working pipeline for air-gapped container execution across multiple compute nodes.
+> See branches for ongoing experiments and iterations.
 
 > The cluster uses the standard OpenCHAMI demo configuration as a baseline. Effort is intentionally focused on system behavior, reproducibility, and runtime workflows rather than renaming or restructuring the default environment.
+
 
 ---
 
@@ -87,6 +89,7 @@ Red Hat Enterprise Linux release 9.7 (Plow)
 
 Planned areas of exploration:
 
+* Networked storage (currently NFS) 
 * Container-first runtime models (quadlets / systemd integration)
 * Image-based rollback and versioning strategies
 * Workload orchestration across nodes
